@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap"
+      rel="stylesheet"
+    />
+<link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+<form action="createPassword.jsp" method="post">
+      <h1>Create Password</h1>
+      <input type="text" name="title" placeholder="Name" /> <br />
+      <input type="text" id="password" name="blog" placeholder="Password" /> <br />        
+      <input class="btn" id = "btn" type="submit" value="Create" /> <br /> 
+      <label for="hour">Change every 24 hours</label>
+      <input id="hour" type="checkbox" name="hour" /> <br />
+      <input class="btn" type="button" onClick="generatePassword()" value="Generate Password" />
+
+</form>
+</body>
+<script>
+function generatePassword() {
+    var length = 16,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_={}[]<>,./",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    document.getElementById('btn').value = "Use Generated Password";
+    document.getElementById('password').value = retVal;
+}
+</script>
+</html>
